@@ -3,7 +3,7 @@
 
 void ff()
 {
-    
+    system("leaks minishell");
 }
 
 int main(int argc, char *argv[], char *env[])
@@ -44,18 +44,14 @@ int main(int argc, char *argv[], char *env[])
             } else {
                 process_quotes_for_cmd(cmd, 1);
                 print_cmd(cmd);
+                if (cmd)
+                    free_cmd_list(cmd);
             }
-          // print_tokens(token_list);
-           // command_table = parse_tokens(token_list);
-           //print_command_table(command_table);
-            
-            // Free the command table here to avoid memory leaks
-            // free_command_table(command_table);
         }   
         free_token_list(token_list);
         
-        //free_tokens(token_list);
         free(input);
     }
+    free_env_struct(env_struct);
     return 0;
 }

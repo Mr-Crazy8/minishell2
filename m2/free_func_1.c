@@ -32,8 +32,6 @@ void free_cmd_list(t_cmd *cmd_list)
         while (current->args[i])
             free(current->args[i++]);
         free(current->args);
-        current->redirs;
-
         free_redirs_list(current->redirs);
         free(current);
         current = next;
