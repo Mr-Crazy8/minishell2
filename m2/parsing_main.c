@@ -1,7 +1,10 @@
 #include "minishell.h"
 
 
-
+void ff()
+{
+    
+}
 
 int main(int argc, char *argv[], char *env[])
 {
@@ -11,6 +14,8 @@ int main(int argc, char *argv[], char *env[])
     char *input;
     t_cmd *cmd;
     
+
+    atexit(ff);
     env_maker(env, &env_struct);
     token_list = NULL;
     while (1)
